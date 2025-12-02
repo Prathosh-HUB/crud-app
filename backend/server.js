@@ -37,17 +37,17 @@ app.get('/users', (req, res) => {
 });
 
 // POST create user
-// app.post('/create', (req, res) => {
-//   const { id, name, email, age } = req.body;
-//   const sql = 'INSERT INTO users (id, name, email, age) VALUES (?, ?, ?, ?)';
-//   db.query(sql, [id, name, email, age], (err, result) => {
-//     if (err) {
-//       console.error('Error inserting user:', err);
-//       return res.status(500).json({ error: 'Insert failed' });
-//     }
-//     res.json({ message: 'User added', result });
-//   });
-// });
+app.post('/create', (req, res) => {
+  const { id, name, email, age } = req.body;
+  const sql = 'INSERT INTO users (id, name, email, age) VALUES (?, ?, ?, ?)';
+  db.query(sql, [id, name, email, age], (err, result) => {
+    if (err) {
+      console.error('Error inserting user:', err);
+      return res.status(500).json({ error: 'Insert failed' });
+    }
+    res.json({ message: 'User added', result });
+  });
+});
 
 
 
